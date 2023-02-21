@@ -23,15 +23,17 @@ By the end of the class, we would have created:
 1. GET /products
 1. GET /products/{id}
 1. POST /products
+1. PUT /products/{id}
+1. DELETE /products/{id}
 
 ## Standard REST API
 
-|Path|Verb|Has Body|Purpose|
-|-|-|-|-|
-|/entities|GET|NO|Get all entities (usually with pagination and sorting query parameters)|
-|/entities/{id}|GET|NO|Get one entity by id|
-|/entities|POST|Yes|Create an entity|
-|/entities/{id}|PUT|Yes|Update an entity|
-|/entities/{id}|DELETE|No|Delete an entity|
+|Path|Verb|Has Request Body|Has Response Body|Purpose|
+|-|-|-|-|-|
+|/entities|GET|NO|YES|Get all entities (usually with pagination and sorting query parameters)|
+|/entities/{id}|GET|NO|YES|Get one entity by id|
+|/entities|POST|Yes|YES|Create an entity|
+|/entities/{id}|PUT|YES|YES|Update an entity|
+|/entities/{id}|DELETE|NO|NO|Delete an entity|
 
 For more info - [Link](https://www.geeksforgeeks.org/rest-api-architectural-constraints/)
