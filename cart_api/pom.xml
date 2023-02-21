@@ -12,7 +12,7 @@
 	<artifactId>cart_api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cart_api</name>
-	<description>Spring Boot Lesson</description>
+	<description>For training</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
