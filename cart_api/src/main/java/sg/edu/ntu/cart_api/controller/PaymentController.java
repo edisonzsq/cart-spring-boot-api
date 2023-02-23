@@ -25,7 +25,7 @@ public class PaymentController {
     @Autowired
     MinimumPayableCheckHelper helper;
 
-    Logger logger = LogManager.getLogger("LOGFILE");
+    Logger logger = LogManager.getLogger(this.getClass());
 
     @RequestMapping(value="/payment", method=RequestMethod.POST, produces="application/json", consumes="application/json")
     public ResponseEntity<ResponseMessage> pay(@RequestParam float payable) {
