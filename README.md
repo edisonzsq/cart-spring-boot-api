@@ -38,7 +38,7 @@ Practically, we will create this endpoint:
 
 |Path|Verb|Return Status|Remarks|
 |-|-|-|-|
-|/payment|POST|200|Payment successful|
+|/payment?payable=5.3|POST|200|Payment successful|
 |||400|When payment is below minimum payable sum or negative value.
 
 ## Lesson Overview (20 Feb 2023, Mon)
