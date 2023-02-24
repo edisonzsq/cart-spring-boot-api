@@ -36,10 +36,11 @@ Essentially, there are three common ways to configure and inject Spring Bean/Val
 
 Practically, we will create this endpoint:
 
-|Path|Verb|Return Status|Remarks|
-|-|-|-|-|
-|/payment?payable=5.3|POST|200|Payment successful|
-|||400|When payment is below minimum payable sum or negative value.
+|Path|Verb|Return Status|Resp Body|Remarks|
+|-|-|-|-|-|
+|/payment?payable=5.3|POST|200|`{"message":"Payment successful!"}`|Payment successful|
+|||400|`{"message":"Payable cannot below minimum sum of ? "}`|When payable is below minimum payable sum.|
+|||400|`{"message":"Payable cannot be negative."}`|When payable is a negative value.|
 
 ## Lesson Overview (20 Feb 2023, Mon)
 
