@@ -42,6 +42,10 @@ Practically, we will create this endpoint:
 |||400|`{"message":"Payable cannot below minimum sum of ? "}`|When payable is below minimum payable sum.|
 |||400|`{"message":"Payable cannot be negative."}`|When payable is a negative value.|
 
+Hint:
+- You have not learned how to capture value from Query Parameter `?payable=5.2`
+- You have not learned how to return a JSON Body in the Response (high difficulty)
+
 ## Lesson Overview (20 Feb 2023, Mon)
 
 1. Generate a Spring Project with the web dependency added
