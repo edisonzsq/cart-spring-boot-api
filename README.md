@@ -34,6 +34,13 @@ Essentially, there are three common ways to configure and inject Spring Bean/Val
 1. Using `@Value` to inject value picked up from `application.properties` file.
 1. Using `@Bean` on a method that returns a configured object.
 
+Practically, we will create this endpoint:
+
+|Path|Verb|Return Status|Remarks|
+|-|-|-|-|
+|/payment|POST|200|Payment successful|
+|||400|When payment is below minimum payable sum or negative value.
+
 ## Lesson Overview (20 Feb 2023, Mon)
 
 1. Generate a Spring Project with the web dependency added
