@@ -1,6 +1,7 @@
 package sg.edu.ntu.cart_api.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Product {
     float price; // default value
 
     @Column(name="created_at", updatable= false)
-    Timestamp createdAt;
+    Timestamp createdAt = new Timestamp(new Date().getTime());
 
     public Integer getId() {
         return id;

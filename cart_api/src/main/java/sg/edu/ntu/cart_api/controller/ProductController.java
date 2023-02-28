@@ -47,7 +47,7 @@ public class ProductController {
         
         try{
             Product created = repo.save(product);
-            return new ResponseEntity(created, HttpStatus.CREATED);
+            return new ResponseEntity(repo.findById(created.getId()), HttpStatus.CREATED);
         }catch(IllegalArgumentException iae){
             iae.printStackTrace();
             return ResponseEntity.badRequest().build();
