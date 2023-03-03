@@ -10,6 +10,8 @@ Step 2: Run `./mvnw spring-boot:run` command
 
 ## Lesson Overview (3 Mar 2023, Fri)
 
+> We need to switch spring-boot-starter-parent version from `3.0.2` to `2.7.7` due to packaging issues.
+
 Lesson Coverage:
 
 - Pros & Cons of Database Access Layer?
