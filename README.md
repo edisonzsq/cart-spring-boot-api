@@ -19,6 +19,12 @@ Lesson Coverage:
 - Implement an interface and extends `JpaRepository`
 - Get started on implementing RESTful APIs
 
+Create this credential in MySQL and then use it on `application.properties`.
+```sql
+CREATE USER 'cartdbuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cartdbpass';
+GRANT all privileges on cartdb.* to 'cartdbuser'@'localhost';
+```
+
 ## Pros & Cons of DAL (Data Access Layer)
 
 |Pros|Cons|
