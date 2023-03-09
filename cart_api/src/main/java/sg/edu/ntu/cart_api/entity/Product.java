@@ -29,7 +29,7 @@ public class Product {
 
     @Column(name="created_at", updatable= false)
     Timestamp createdAt = new Timestamp(new Date().getTime());
-
+    
     public Integer getId() {
         return id;
     }

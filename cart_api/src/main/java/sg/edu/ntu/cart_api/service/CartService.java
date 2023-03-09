@@ -19,8 +19,8 @@ public class CartService {
     @Autowired
     ProductRepository productRepo;
     
-    public void add(int productId, Optional<Integer> quantity) throws NotFoundException {
-        Optional<Cart> optionalCartItem = repo.findByProductId(productId);
+    public void add(int productId, Optional<Integer> quantity, int userId) throws NotFoundException {
+        Optional<Cart> optionalCartItem = repo.findByProductIdAndUserId(productId, userId);
         
         if(optionalCartItem.isPresent()){
 
@@ -39,6 +39,7 @@ public class CartService {
                 Cart cartItem = new Cart();
                 cartItem.setProduct(product);
                 cartItem.setQuantity(quantity.orElseGet(() -> 1));
+                cartItem.setUserId(userId);
                 repo.save(cartItem);
             }else{
                 throw new NotFoundException("Product ID not found");
@@ -46,8 +47,8 @@ public class CartService {
         }
     }
 
-    public void decrement(int productId) throws NotFoundException{
-        Optional<Cart> optionalCartItem = repo.findByProductId(productId);        
+    public void decrement(int productId, int userId) throws NotFoundException{
+        Optional<Cart> optionalCartItem = repo.findByProductIdAndUserId(productId, userId);        
         if(optionalCartItem.isPresent()){
 
             int currentQuantity = 0;

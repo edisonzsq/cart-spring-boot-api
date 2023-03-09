@@ -8,6 +8,7 @@ import javax.crypto.NullCipher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,16 +35,16 @@ public class CartController {
     CartService service;
 
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<Cart>> findAll(){
-        List<Cart> cartItems = (List<Cart>)repo.findAll();
+    public ResponseEntity<List<Cart>> findAll(@RequestHeader("user-id") int userId){
+        List<Cart> cartItems = (List<Cart>)repo.findByUserId(userId);
         if(cartItems.size() > 0) return ResponseEntity.ok().body(cartItems);
         return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(value="/add/{productId}", method=RequestMethod.POST)
-    public ResponseEntity add(@PathVariable int productId, @RequestParam Optional<Integer> quantity){
+    public ResponseEntity add(@PathVariable int productId, @RequestParam Optional<Integer> quantity, @RequestHeader("user-id") int userId){
         try{
-            service.add(productId, quantity);
+            service.add(productId, quantity, userId);
             return ResponseEntity.ok().build(); // When no exception is thrown means operation is successful.
         }catch(NotFoundException nfe){
             nfe.printStackTrace();
@@ -56,10 +57,10 @@ public class CartController {
     }
 
     @RequestMapping(value="/decrement/{productId}", method=RequestMethod.POST)
-    public ResponseEntity decrement(@PathVariable int productId){
+    public ResponseEntity decrement(@PathVariable int productId, @RequestHeader("user-id") int userId){
 
         try{
-            service.decrement(productId);
+            service.decrement(productId, userId);
             return ResponseEntity.ok().build(); // When no exception is thrown means operation is successful.
         }catch(NotFoundException nfe){
             nfe.printStackTrace();
